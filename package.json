@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "node-xlsx": "^0.15.0",
     "puppeteer": "^5.5.0"
   },
   "devDependencies": {},

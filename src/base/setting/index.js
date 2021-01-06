@@ -3,5 +3,6 @@
  * by zhaoyf    2021年1月2日17:49:45
  */
 module.exports = {
-    
+    //--控制台设置
+    console: require('./console')
 };
