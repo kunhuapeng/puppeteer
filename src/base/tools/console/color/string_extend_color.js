@@ -2,6 +2,7 @@
  * 为String对象扩展color的属性获取
  * by zhaoyf    2021年1月2日19:08:59
  */
+'use strict';
 const color = require('./color');
 //--扩展String对象，追加颜色获取方法
 for(let i in color){
@@ -14,3 +15,5 @@ for(let i in color){
         }
     });
 }
+
+module.exports = String;

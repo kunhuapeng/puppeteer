@@ -2,7 +2,8 @@
  * 木偶剧院开幕
  * by zhaoyf    2021年1月2日19:23:30
  */
-const console = require('./../base/tools/console');
+'use strict';
+const { console } = require('./../base/tools');
 console.global = true;
 
 console.logStart('木偶剧院开幕了哟'.red);

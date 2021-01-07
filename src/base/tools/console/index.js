@@ -3,8 +3,9 @@
  * by zhaoyf    2021年1月5日09:48:48
  * 在新console实例上，扩展logStart、logEnd方法；global属性
  */
+'use strict';
 //--为控制台扩展String对象，追加设定中的颜色处理
-require('./string_extend_color');
+require('./color/string_extend_color');
 //--获取console的颜色设置
 const { color } = require('./../../setting').console;
 //--获取node的Console类

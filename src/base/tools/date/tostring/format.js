@@ -4,6 +4,7 @@
  * by zhaoyf    2021年1月4日16:26:15
  * 单独使用前，需要先bind(date对象)
  */
+'use strict';
 module.exports = function(formatModel){
     let d = this,
         keys = {//--各个关键字的值获取函数

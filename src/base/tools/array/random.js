@@ -3,6 +3,7 @@
  * 从数组中随机取出n个元素，并返回长度为n的数组
  * by zhaoyf    2021年1月4日17:09:39
  */
+'use strict';
 Object.defineProperty(Array.prototype, 'random', {
     enumerable: false,
     configurable: false,
@@ -34,4 +35,4 @@ Object.defineProperty(Array.prototype, 'random', {
 // console.log(arr.random(6));
 // console.log(arr.random(8));
 
-module.exports = Array;
+module.exports = Array.prototype.random;

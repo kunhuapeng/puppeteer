@@ -2,6 +2,7 @@
  * 可以使用的颜色
  * by zhaoyf    2021年1月2日19:03:43
  */
+'use strict';
 module.exports = {
     's'    : '\x1B[1m', // 亮色
     'grey'      : '\x1B[2m', // 灰色

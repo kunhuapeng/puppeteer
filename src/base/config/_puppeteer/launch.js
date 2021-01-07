@@ -4,6 +4,7 @@ const { module } = require("../../global");
  * puppeteer的launch参数配置
  * by zhaoyf    2021年1月6日09:56:21
  */
+'use strict';
 module.exports = {
     headless: true,//--是否开启无头模式
     args: [
