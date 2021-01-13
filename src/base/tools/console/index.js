@@ -22,23 +22,23 @@ class MyConsole extends Console{
     }
 
     //--扩展新的logStart方法，为后续log信息创建新的展示分支
-    logStart () {
+    logStart (...args) {
         //--第一层追加时间信息
         if($mySpace._deep == 0){
             let time = new Date().toTimeString().split(' ')[0];
             time = `[${time.grey}]`;
             //--输出信息
-            this.log(time, ...arguments);
+            this.log(time, ...args);
         }
         else{
-            this.log(...arguments);
+            this.log(...args);
         }
         if($mySpace._deep ++ == 0){
             //--用新的属性接收原有log方法
             this._log = this.log;
             //--重定义log方法，在输出信息前追加├ [时间]
             this.log = (function(log){
-                return function(){
+                return function(...args){
                     let time = new Date().toTimeString().split(' ')[0];
                     let line = '│ ';//--竖线
                     let barnch = '├─';//--分支
@@ -48,18 +48,18 @@ class MyConsole extends Console{
                     }
                     time = `[${time.grey}]`;
                     //--输出信息
-                    log(time, `${line.repeat($mySpace._deep - 1) + barnch}`, ...arguments);
+                    log(time, `${line.repeat($mySpace._deep - 1) + barnch}`, ...args);
                 }
             })(this.log);
         }
     }
 
     //--扩展新的logEnd方法，结束log的展示分支
-    logEnd () {
+    logEnd (...args) {
         //--分支结束标记，设置为true时，通知log输出结束标签
         $mySpace._endRranch = true;
         //--输出信息
-        this.log(...arguments);
+        this.log(...args);
         //--树节点深度递减
         if($mySpace._deep -- == 0){
             $mySpace._deep = 0;
@@ -70,9 +70,9 @@ class MyConsole extends Console{
 
     //--封装error，应用用户设置的颜色
     error = (function(err){
-        return function(){
+        return function(...args){
             if(color.error){
-                let params = Array.from(arguments);
+                let params = args;
                 params.forEach(function(val, i){
                     if(val[color.error]){
                         params[i] = val[color.error]
@@ -81,16 +81,16 @@ class MyConsole extends Console{
                 err(...params);
             }
             else{
-                err(...arguments);
+                err(...args);
             }
         }
     })(this.error);
 
     //--封装warn，应用用户设置的颜色
     warn = (function(warning){
-        return function(){
+        return function(...args){
             if(color.warn){
-                let params = Array.from(arguments);
+                let params = args;
                 params.forEach(function(val, i){
                     if(val[color.warn]){
                         params[i] = val[color.warn]
@@ -99,7 +99,7 @@ class MyConsole extends Console{
                 warning(...params);
             }
             else{
-                warning(...arguments);
+                warning(...args);
             }
         }
     })(this.warn);

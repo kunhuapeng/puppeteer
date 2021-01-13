@@ -7,9 +7,16 @@
     "node-xlsx": "^0.15.0",
     "puppeteer": "^5.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3"
+  },
   "scripts": {
-    "test": "node src/stage/index.js"
+    "stage": "node src/stage/index.js",
+    "test": "jest --coverage"
+  },
+  "jest": {
+    "testRegex": "/unit/.*.test.js?$"
   },
   "keywords": [],
   "author": "",

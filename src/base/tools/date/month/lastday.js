@@ -7,5 +7,6 @@ let firstDay = require('./firstday');
 module.exports = function(){
     let date = this;
     let first = firstDay.call(date);
-    return first.compute().add('m', 1).compute().add('d', -1);
+    first = first.compute().add('m', 1).setDate(0);//--日期设置为0，就是上个月的最后一天
+    return new Date(first);
 }
